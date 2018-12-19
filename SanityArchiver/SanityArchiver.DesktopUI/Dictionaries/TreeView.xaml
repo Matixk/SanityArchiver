@@ -1,0 +1,11 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:directories="clr-namespace:SanityArchiver.Application.Models.Directories;assembly=SanityArchiver.Application">
+    <HierarchicalDataTemplate 
+        x:Key="DirectoryTreeView"
+        DataType="directories:Directory">
+        
+        <TreeViewItem Header="{Binding Name}"/>
+        
+    </HierarchicalDataTemplate>
+</ResourceDictionary>
