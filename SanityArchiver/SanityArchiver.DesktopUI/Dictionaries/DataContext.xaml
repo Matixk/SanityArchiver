@@ -1,5 +1,8 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:viewModels="clr-namespace:SanityArchiver.DesktopUI.ViewModels">
+                    xmlns:viewModels="clr-namespace:SanityArchiver.DesktopUI.ViewModels"
+                    xmlns:converters="clr-namespace:SanityArchiver.DesktopUI.Converters">
     <viewModels:MainWindowVM x:Key="MainWindowDataContext"/>
+    <converters:FileSizeConverter x:Key="SizeConverter" />
+    <converters:ExtensionRemover x:Key="ExtensionRemover" />
 </ResourceDictionary>
