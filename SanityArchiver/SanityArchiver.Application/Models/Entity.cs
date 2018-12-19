@@ -27,13 +27,18 @@ namespace SanityArchiver.Application.Models
         }
         public long Size => GetSize();
 
+        /// <summary>
+        /// Creates a new entity.
+        /// </summary>
+        /// <param name="path">Path to Entity.</param>
         public Entity(string path)
         {
             Path = path;
         }
         
-        /// <summary> Returns the occupied space on disk in bytes </summary>
-        /// <returns> long </returns>
+        /// <summary>
+        /// Returns the occupied space on disk in bytes.
+        /// </summary>
         public abstract long GetSize();
         
         public event PropertyChangedEventHandler PropertyChanged;
