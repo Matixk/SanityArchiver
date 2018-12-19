@@ -1,20 +1,20 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# SanityArchiver
+2nd TW week project in .NET basics module
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+## Description
+As a User I would like to have an application in order to archive and handle my files.
+### What I need:
+* I would like to browse my files on drive
+* I would like to compress a selected file
+* I would like to crypt a selected file
+* I would like to change the file attributes in a dialog
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
-
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://www.visualstudio.com/en-us/docs/git/create-a-readme). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+### Feature set:
+* Files can be browsed, a file can be selected
+* Compressing and decompressing of files are possible
+* Encryption and decryption of files are possible
+* File attributes can be changed
+* File searching with regular expressions
+* Text files can be opened with UTF character set
+* Files can be copied and moved from here to there
+* Calculate and show occupied space of directories
