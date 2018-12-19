@@ -12,8 +12,7 @@ namespace SanityArchiver.Application.Models.Directories
 
         public Directory(string path) : base(path)
         {
-            var info = new DirectoryInfo(path);
-            Name = info.Name;
+            Name = new DirectoryInfo(path).Name;
         }
 
         public void LoadFiles()
