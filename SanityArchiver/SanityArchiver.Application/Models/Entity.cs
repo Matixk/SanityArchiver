@@ -25,6 +25,7 @@ namespace SanityArchiver.Application.Models
                 OnPropertyChanged("path");
             }
         }
+        public long Size => GetSize();
 
         public Entity(string path)
         {
