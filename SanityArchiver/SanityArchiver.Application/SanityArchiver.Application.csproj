@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Directories\Directory.cs" />
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Models\Files\File.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
