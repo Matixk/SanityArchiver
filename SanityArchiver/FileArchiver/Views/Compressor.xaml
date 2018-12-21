@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="Compressor" Height="220" Width="300">
     <Grid>
-        
+        <Button Content="Browser" Margin="10,10,195,135"
+                Command="{Binding DirectoryBrowser}"/>
+
+        <TextBlock Text="{Binding Path}" IsEnabled="False" Margin="100,10,10,135" FontSize="16"/>
+
+        <Label Content="Compression speed" Margin="90,50,80,94"/>
+
+        <ComboBox Margin="90,75,80,80"
+                  ItemsSource="{Binding Source={StaticResource Speed}}"
+                  SelectedItem="{Binding Speed}"/>
+
+        <Button Content="Compress" Margin="100,130,100,10"
+                Command="{Binding Action}"/>
     </Grid>
 </Window>

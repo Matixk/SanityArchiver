@@ -39,6 +39,7 @@
         <Reference Include="System.Data" />
         <Reference Include="System.IO.Compression" />
         <Reference Include="System.IO.Compression.FileSystem" />
+        <Reference Include="System.Windows.Forms" />
         <Reference Include="System.Xml" />
         <Reference Include="System.Xaml">
             <RequiredTargetFramework>4.0</RequiredTargetFramework>
@@ -59,6 +60,7 @@
         <Compile Include="Models\Compressor\CompressionSpeed.cs" />
         <Compile Include="Models\Compressor\Compressor.cs" />
         <Compile Include="ViewModels\CompressorVm.cs" />
+        <Compile Include="ViewModels\DefaultVm.cs" />
         <Compile Include="ViewModels\FileArchiverVm.cs" />
         <Compile Include="Views\Compressor.xaml.cs">
           <DependentUpon>Compressor.xaml</DependentUpon>
@@ -86,6 +88,7 @@
         <None Include="App.config" />
     </ItemGroup>
     <ItemGroup>
+      <Page Include="Dictionaries\CompressionSpeed.xaml" />
       <Page Include="Dictionaries\DataContext.xaml" />
       <Page Include="Views\Compressor.xaml" />
       <Page Include="Views\FileArchiver.xaml">
