@@ -1,8 +1,12 @@
 using System.ComponentModel;
+using System.IO;
 using System.Runtime.CompilerServices;
+using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Input;
 using TextReader.Models;
 using Utils;
+using MessageBox = System.Windows.MessageBox;
 
 namespace TextReader.ViewModels
 {
@@ -36,7 +40,22 @@ namespace TextReader.ViewModels
 
         private void OpenFile(object obj)
         {
-            throw new System.NotImplementedException();
+            var fileBrowser = new OpenFileDialog
+            {
+                Filter = @"txt files (*.txt)|*.txt|All files (*.*)|*.*", FilterIndex = 2, RestoreDirectory = true
+            };
+
+            if (fileBrowser.ShowDialog() == DialogResult.OK &&
+                ".txt".Equals(new FileInfo(fileBrowser.FileName).Extension))
+            {
+                TextFileReader.Path = fileBrowser.FileName;
+                FileName = fileBrowser.SafeFileName;
+            }
+            else
+            {
+                MessageBox.Show("Couldn't open this file", "Open file",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void SaveFile(object obj)
