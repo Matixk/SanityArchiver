@@ -76,18 +76,25 @@ namespace Cryptogram.ViewModels
 
         private void EncryptFile()
         {
-            var fileText = File.ReadAllText(path, Encoding.UTF8);
-            var encryptedText = StringCipher.Encrypt(fileText, password);
-            var fileInfo = new FileInfo(path);
-            var filename = System.IO.Path.GetFileNameWithoutExtension(fileInfo.Name);
-
-            File.WriteAllText($"{fileInfo.DirectoryName}\\{filename}.ENC", encryptedText);
+            var encryptedText = StringCipher.Encrypt(GetFileText(), password);
+            WriteFile(".ENC", encryptedText);
         }
 
         private void DecryptFile()
         {
-            throw new System.NotImplementedException();
+            var decryptedText = StringCipher.Decrypt(GetFileText(), password);
+            WriteFile(".txt", decryptedText);
         }
+
+        private void WriteFile(string extension, string text)
+        {
+            var fileInfo = new FileInfo(path);
+            var filename = System.IO.Path.GetFileNameWithoutExtension(fileInfo.Name);
+
+            File.WriteAllText($"{fileInfo.DirectoryName}\\{filename}{extension}", text);
+        }
+
+        private string GetFileText() => File.ReadAllText(path, Encoding.UTF8);
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
