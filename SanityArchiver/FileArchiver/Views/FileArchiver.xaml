@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="File Archiver" Height="220" Width="300">
     <Grid>
-        
+        <Button Content="Compressor" Margin="10,50,160,40" Command="{Binding Compress}"/>
     </Grid>
 </Window>
