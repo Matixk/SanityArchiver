@@ -1,4 +1,6 @@
+using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows;
@@ -60,12 +62,33 @@ namespace TextReader.ViewModels
 
         private void SaveFile(object obj)
         {
-            throw new System.NotImplementedException();
+            File.WriteAllText(TextFileReader.Path, TextFileReader.Text);
         }
 
         private void SaveFileAs(object obj)
         {
-            throw new System.NotImplementedException();
+            var fileBrowser = new SaveFileDialog
+            {
+                Filter = @"txt files (*.txt)|*.txt|All files (*.*)|*.*", FilterIndex = 2, RestoreDirectory = true
+            };
+
+            if(fileBrowser.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    File.Delete(TextFileReader.Path);
+                    File.WriteAllText(fileBrowser.FileName, TextFileReader.Text);
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Couldn't save this file", "Save file",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
