@@ -48,7 +48,27 @@ namespace TextReader.Models
 
         private string LoadText()
         {
-            throw new NotImplementedException();
+            if (Path == "") return text;
+            CheckPath();
+            return File.ReadAllText(Path);
+        }
+
+        private void CheckPath()
+        {
+            try
+            {
+                if (!File.Exists(Path))
+                    throw new FileNotFoundException($"{Path} - not found");
+                var extension = new FileInfo(Path).Extension;
+
+                if (!".txt".Equals(extension))
+                    throw new FileFormatException($"{extension} is not extension of text file!");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($@"{e.Message}", @"Problem with file",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
