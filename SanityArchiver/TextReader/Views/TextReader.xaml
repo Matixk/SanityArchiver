@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         DataContext="{StaticResource MainWindowDataContext}"
-        Title="MainWindow" Height="350" Width="525">
+        Title="{Binding FileName}" Height="350" Width="525">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         
+        <ToolBar Grid.Row="0">
+            <Button Command="New" Content="New" />
+            <Button Command="{Binding Open}" Content="Open" />
+            <Button Command="{Binding Save}" Content="Save" />
+            <Button Command="{Binding SaveAs}" Content="Save As..." />
+        </ToolBar>
+        <TextBox Text="{Binding TextFileReader.Text, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" IsEnabled="True" Grid.Row="1" />
     </Grid>
 </Window>
