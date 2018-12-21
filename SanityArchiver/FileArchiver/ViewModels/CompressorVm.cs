@@ -1,3 +1,5 @@
+using System.IO;
+using System.Windows;
 using FileArchiver.Models.Compressor;
 
 namespace FileArchiver.ViewModels
@@ -22,7 +24,10 @@ namespace FileArchiver.ViewModels
         
         protected override void ActionWithFolder(object obj)
         {
-            throw new System.NotImplementedException();
+            if (!Directory.Exists(Path)) return;
+            Compressor.CreateZipFromDirectory(Path);
+            MessageBox.Show("Compression done!", "Compression",
+                MessageBoxButton.OK, MessageBoxImage.None);
         }
 
         

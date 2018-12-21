@@ -11,7 +11,7 @@ namespace FileArchiver.Models.Compressor
         public static void CreateZipFromDirectory(string pathToDir, string zipName = null,
             CompressionSpeed mode = CompressionSpeed.Optimal)
         {
-            if (Directory.Exists(pathToDir))
+            if (!Directory.Exists(pathToDir))
                 MessageBox.Show($"{pathToDir} doesn't exist!", "Folder",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             if (string.IsNullOrEmpty(zipName)) zipName = new DirectoryInfo(pathToDir).Name;
