@@ -55,7 +55,7 @@
             <DependentUpon>App.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
-        <Compile Include="Models\Decryptor.cs" />
+        <Compile Include="Models\StringCipher.cs" />
         <Compile Include="Views\Cryptogram.xaml.cs">
           <DependentUpon>Cryptogram.xaml</DependentUpon>
         </Compile>
