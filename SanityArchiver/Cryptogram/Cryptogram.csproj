@@ -57,8 +57,15 @@
         </Compile>
         <Compile Include="Models\StringCipher.cs" />
         <Compile Include="ViewModels\CryptogramVm.cs" />
+        <Compile Include="ViewModels\DefaultVm.cs" />
         <Compile Include="Views\Cryptogram.xaml.cs">
           <DependentUpon>Cryptogram.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Decrypt.xaml.cs">
+          <DependentUpon>Decrypt.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Encrypt.xaml.cs">
+          <DependentUpon>Encrypt.xaml</DependentUpon>
         </Compile>
     </ItemGroup>
     <ItemGroup>
@@ -81,6 +88,14 @@
     <ItemGroup>
       <Page Include="Dictionaries\DataContext.xaml" />
       <Page Include="Views\Cryptogram.xaml" />
+      <Page Include="Views\Decrypt.xaml" />
+      <Page Include="Views\Encrypt.xaml" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Utils\Utils.csproj">
+        <Project>{c0758d7b-3acf-4f7e-bdb7-bcafeaebc2a6}</Project>
+        <Name>Utils</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

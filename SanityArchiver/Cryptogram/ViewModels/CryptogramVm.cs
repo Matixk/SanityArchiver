@@ -1,41 +1,22 @@
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using Cryptogram.Views;
+using Utils;
 
 namespace Cryptogram.ViewModels
 {
-    public class CryptogramVm : INotifyPropertyChanged
+    public class CryptogramVm
     {
-        public string Path
+        public ICommand Encrypt => new RelayCommand(OpenEncryptDialog);
+        public ICommand Decrypt => new RelayCommand(OpenDecryptDialog);
+
+        private void OpenEncryptDialog(object obj)
         {
-            get { throw new System.NotImplementedException(); }
-            set { throw new System.NotImplementedException(); }
-        }
-        public string Password
-        {
-            get { throw new System.NotImplementedException(); }
-            set { throw new System.NotImplementedException(); }
-        }
-        public ICommand FileBrowser
-        {
-            get { throw new System.NotImplementedException(); }
-        }
-        public ICommand Action
-        {
-            get { throw new System.NotImplementedException(); }
+            new Encrypt().Show();
         }
 
-        public CryptogramVm() {}
-
-        public CryptogramVm(string path)
+        private void OpenDecryptDialog(object obj)
         {
-            Path = path;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            new Decrypt().Show();
         }
     }
 }
