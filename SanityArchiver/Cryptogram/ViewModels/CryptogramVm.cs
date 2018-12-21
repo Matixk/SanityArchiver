@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
@@ -62,10 +63,26 @@ namespace Cryptogram.ViewModels
             switch (extension)
             {
                 case ".txt":
-                    EncryptFile();
+                    try
+                    {
+                        EncryptFile();
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show($@"{e.Message}", @"Encryption failed",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     break;
                 case ".ENC":
-                    DecryptFile();
+                    try
+                    {
+                        DecryptFile();
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show($@"{e.Message}", @"Decryption failed",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     break;
                 default:
                     MessageBox.Show($@"{extension} must be .txt or .ENC", @"Action",
