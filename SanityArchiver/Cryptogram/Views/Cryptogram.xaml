@@ -3,9 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        DataContext="{StaticResource MainWindowDataContext}"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Button Content="Browser" Margin="10,10,195,135"
+                Command="{Binding FileBrowser}"/>
+
+        <TextBlock x:Name="Path" Text="{Binding Path}" IsEnabled="False" Margin="100,10,10,135" FontSize="16"/>
+        <TextBlock Text="{Binding Password}"/>
+
+        <Button Content="Compress" Margin="100,130,100,10"
+                Command="{Binding Action}"/>
     </Grid>
 </Window>

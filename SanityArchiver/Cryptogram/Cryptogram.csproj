@@ -56,6 +56,7 @@
             <SubType>Code</SubType>
         </Compile>
         <Compile Include="Models\StringCipher.cs" />
+        <Compile Include="ViewModels\CryptogramVm.cs" />
         <Compile Include="Views\Cryptogram.xaml.cs">
           <DependentUpon>Cryptogram.xaml</DependentUpon>
         </Compile>
@@ -78,9 +79,7 @@
         <None Include="App.config" />
     </ItemGroup>
     <ItemGroup>
-      <Content Include="Dictionaries\DataContext.xaml" />
-    </ItemGroup>
-    <ItemGroup>
+      <Page Include="Dictionaries\DataContext.xaml" />
       <Page Include="Views\Cryptogram.xaml" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
