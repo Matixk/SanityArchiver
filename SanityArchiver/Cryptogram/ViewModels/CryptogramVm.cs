@@ -1,8 +1,10 @@
 using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Text;
 using System.Windows.Forms;
 using System.Windows.Input;
+using Cryptogram.Models;
 using Utils;
 
 namespace Cryptogram.ViewModels
@@ -18,7 +20,7 @@ namespace Cryptogram.ViewModels
             set
             {
                 path = File.Exists(value) ? value : "";
-                OnPropertyChanged("path");
+                OnPropertyChanged($"path");
             }
         }
         public string Password
@@ -27,7 +29,7 @@ namespace Cryptogram.ViewModels
             set
             {
                 password = value ?? "";
-                OnPropertyChanged("password");
+                OnPropertyChanged($"password");
             }
         }
 
@@ -52,7 +54,7 @@ namespace Cryptogram.ViewModels
             }
         }
 
-        protected void ActionWithFile(object obj)
+        private void ActionWithFile(object obj)
         {
             if (path == null || !File.Exists(path)) return;
             var extension = new FileInfo(path).Extension;
@@ -66,7 +68,7 @@ namespace Cryptogram.ViewModels
                     DecryptFile();
                     break;
                 default:
-                    MessageBox.Show($"{extension} must be .txt or .ENC", "Action",
+                    MessageBox.Show($@"{extension} must be .txt or .ENC", @"Action",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
@@ -74,7 +76,12 @@ namespace Cryptogram.ViewModels
 
         private void EncryptFile()
         {
-            throw new System.NotImplementedException();
+            var fileText = File.ReadAllText(path, Encoding.UTF8);
+            var encryptedText = StringCipher.Encrypt(fileText, password);
+            var fileInfo = new FileInfo(path);
+            var filename = System.IO.Path.GetFileNameWithoutExtension(fileInfo.Name);
+
+            File.WriteAllText($"{fileInfo.DirectoryName}\\{filename}.ENC", encryptedText);
         }
 
         private void DecryptFile()
@@ -83,7 +90,7 @@ namespace Cryptogram.ViewModels
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
