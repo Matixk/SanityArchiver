@@ -57,7 +57,9 @@
         </Compile>
         <Compile Include="Models\StringCipher.cs" />
         <Compile Include="ViewModels\CryptogramVm.cs" />
+        <Compile Include="ViewModels\DecryptVm.cs" />
         <Compile Include="ViewModels\DefaultVm.cs" />
+        <Compile Include="ViewModels\EncryptVm.cs" />
         <Compile Include="Views\Cryptogram.xaml.cs">
           <DependentUpon>Cryptogram.xaml</DependentUpon>
         </Compile>

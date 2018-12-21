@@ -2,4 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:viewModels="clr-namespace:Cryptogram.ViewModels">
     <viewModels:CryptogramVm x:Key="MainWindowDataContext"/>
+    <viewModels:EncryptVm x:Key="EncryptWindowDataContext"/>
+    <viewModels:DecryptVm x:Key="DecryptWindowDataContext"/>
 </ResourceDictionary>
