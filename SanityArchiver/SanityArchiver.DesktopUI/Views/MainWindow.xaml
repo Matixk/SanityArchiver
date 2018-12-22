@@ -18,19 +18,19 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <TreeView Grid.Column="0" Grid.Row="1"
+        <TreeView x:Name="TreeView" Grid.Column="0" Grid.Row="1"
                   ItemsSource="{Binding Directories}"
                   ItemTemplate="{StaticResource DirectoryTreeView}">
             <i:Interaction.Triggers>
 
-                <i:EventTrigger EventName="SizeChanged">
+                <i:EventTrigger EventName="MouseLeftButtonDown">
                     <i:InvokeCommandAction Command="{Binding ExpandDirectory}"
-                                           CommandParameter="{Binding ElementName=treeView, Path=SelectedItem}"/>
+                                           CommandParameter="{Binding ElementName=TreeView, Path=SelectedItem}"/>
                 </i:EventTrigger>
 
                 <i:EventTrigger EventName="MouseLeftButtonUp">
                     <i:InvokeCommandAction Command="{Binding ShowDirectory}"
-                                           CommandParameter="{Binding ElementName=treeView, Path=SelectedItem}"/>
+                                           CommandParameter="{Binding ElementName=TreeView, Path=SelectedItem}"/>
                 </i:EventTrigger>
 
             </i:Interaction.Triggers>

@@ -117,6 +117,10 @@
       <Project>{d78bfb25-5907-4fa2-87a7-806a7831efd2}</Project>
       <Name>SanityArchiver.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utils\Utils.csproj">
+      <Project>{c0758d7b-3acf-4f7e-bdb7-bcafeaebc2a6}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
