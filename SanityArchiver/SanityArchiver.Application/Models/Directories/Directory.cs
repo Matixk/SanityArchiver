@@ -7,8 +7,8 @@ namespace SanityArchiver.Application.Models.Directories
 {
     public class Directory : Entity
     {
-        public readonly ObservableCollection<File> ContainedFiles = new ObservableCollection<File>();
-        public readonly ObservableCollection<Directory> SubDirectories = new ObservableCollection<Directory>();
+        public ObservableCollection<File> ContainedFiles { get; }= new ObservableCollection<File>();
+        public ObservableCollection<Directory> SubDirectories { get; }= new ObservableCollection<Directory>();
 
         public Directory(string path) : base(path)
         {
