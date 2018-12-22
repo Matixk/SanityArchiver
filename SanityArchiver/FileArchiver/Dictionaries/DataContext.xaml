@@ -3,4 +3,5 @@
                     xmlns:local="clr-namespace:FileArchiver.ViewModels">
     <local:FileArchiverVm x:Key="MainWindowDataContext"/>
     <local:CompressorVm x:Key="CompressorDataContext"/>
+    <local:DecompressorVm x:Key="DecompressorDataContext"/>
 </ResourceDictionary>

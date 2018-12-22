@@ -59,11 +59,16 @@
         </Compile>
         <Compile Include="Models\Compressor\CompressionSpeed.cs" />
         <Compile Include="Models\Compressor\Compressor.cs" />
+        <Compile Include="Models\Decompressor\Decompressor.cs" />
         <Compile Include="ViewModels\CompressorVm.cs" />
+        <Compile Include="ViewModels\DecompressorVm.cs" />
         <Compile Include="ViewModels\DefaultVm.cs" />
         <Compile Include="ViewModels\FileArchiverVm.cs" />
         <Compile Include="Views\Compressor.xaml.cs">
           <DependentUpon>Compressor.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Decompressor.xaml.cs">
+          <DependentUpon>Decompressor.xaml</DependentUpon>
         </Compile>
         <Compile Include="Views\FileArchiver.xaml.cs">
           <DependentUpon>FileArchiver.xaml</DependentUpon>
@@ -91,13 +96,11 @@
       <Page Include="Dictionaries\CompressionSpeed.xaml" />
       <Page Include="Dictionaries\DataContext.xaml" />
       <Page Include="Views\Compressor.xaml" />
+      <Page Include="Views\Decompressor.xaml" />
       <Page Include="Views\FileArchiver.xaml">
         <Generator>MSBuild:Compile</Generator>
         <SubType>Designer</SubType>
       </Page>
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Models\Decompressor" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Utils\Utils.csproj">

@@ -8,5 +8,6 @@
         Title="File Archiver" Height="220" Width="300">
     <Grid>
         <Button Content="Compressor" Margin="10,50,160,40" Command="{Binding Compress}"/>
+        <Button Content="Decompressor" Margin="160,50,10,40" Command="{Binding Decompress}"/>
     </Grid>
 </Window>
