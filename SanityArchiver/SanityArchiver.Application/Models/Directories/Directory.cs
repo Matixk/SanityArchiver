@@ -20,7 +20,7 @@ namespace SanityArchiver.Application.Models.Directories
             ContainedFiles.Clear();
             new DirectoryInfo(Path).GetFiles().ToList().ForEach(file =>
             {
-                if ((file.Attributes & FileAttributes.Hidden & FileAttributes.System) == 0)
+                if (CheckAttributes(file.Attributes))
                     ContainedFiles.Add(new File(file.FullName));
             });
         }
@@ -30,7 +30,7 @@ namespace SanityArchiver.Application.Models.Directories
             SubDirectories.Clear();
             new DirectoryInfo(Path).GetDirectories().ToList().ForEach(directory =>
             {
-                if ((directory.Attributes & FileAttributes.Hidden & FileAttributes.System) == 0)
+                if (CheckAttributes(directory.Attributes))
                     SubDirectories.Add(new Directory(directory.FullName));
             });
         }
@@ -45,5 +45,8 @@ namespace SanityArchiver.Application.Models.Directories
             SubDirectories.ToList().ForEach(directory => occupiedSpace += directory.GetSize());
             return occupiedSpace;
         }
+
+        private bool CheckAttributes(FileAttributes attributes) => (attributes & FileAttributes.Hidden) == 0 &&
+                                                                   (attributes & FileAttributes.System) == 0;
     }
 }
