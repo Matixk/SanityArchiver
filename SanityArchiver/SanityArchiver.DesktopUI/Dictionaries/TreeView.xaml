@@ -3,6 +3,7 @@
                     xmlns:directories="clr-namespace:SanityArchiver.Application.Models.Directories;assembly=SanityArchiver.Application">
     <HierarchicalDataTemplate 
         x:Key="DirectoryTreeView"
+        ItemsSource="{Binding SubDirectories}"
         DataType="directories:Directory">
         
         <TreeViewItem Header="{Binding Name}"/>
