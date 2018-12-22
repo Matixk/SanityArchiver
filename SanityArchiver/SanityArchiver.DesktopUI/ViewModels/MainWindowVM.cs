@@ -16,7 +16,15 @@ namespace SanityArchiver.DesktopUI.ViewModels
     {
         public ObservableCollection<Directory> Directories { get; }
         public ObservableCollection<File> Files { get; }
-        public ICommand ExpandDirectory => new RelayCommand(CanExpand, LoadDirectories);
+
+        public ICommand ExpandDirectory
+        {
+            get { throw new NotImplementedException(); }
+        }
+        public object ShowDirectory
+        {
+            get { throw new NotImplementedException(); }
+        }
 
         /// <summary>
         /// Creates a new ViewModel used in MainWindow and loads drivers for TreeView.
@@ -51,10 +59,5 @@ namespace SanityArchiver.DesktopUI.ViewModels
             ((Directory)treeViewItem.DataContext).LoadSubDirectories();
         }
         
-        private bool CanExpand(object arg)
-        {
-            Debug.WriteLine(arg);
-            return true;
-        }
     }
 }

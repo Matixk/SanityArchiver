@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         DataContext="{StaticResource MainWindowDataContext}"
         Title="Sanity Archiver" Height="450" Width="800">
@@ -19,7 +20,21 @@
         
         <TreeView Grid.Column="0" Grid.Row="1"
                   ItemsSource="{Binding Directories}"
-                  ItemTemplate="{StaticResource DirectoryTreeView}"/>
+                  ItemTemplate="{StaticResource DirectoryTreeView}">
+            <i:Interaction.Triggers>
+
+                <i:EventTrigger EventName="SizeChanged">
+                    <i:InvokeCommandAction Command="{Binding ExpandDirectory}"
+                                           CommandParameter="{Binding ElementName=treeView, Path=SelectedItem}"/>
+                </i:EventTrigger>
+
+                <i:EventTrigger EventName="MouseLeftButtonUp">
+                    <i:InvokeCommandAction Command="{Binding ShowDirectory}"
+                                           CommandParameter="{Binding ElementName=treeView, Path=SelectedItem}"/>
+                </i:EventTrigger>
+
+            </i:Interaction.Triggers>
+        </TreeView>
 
         <ListView Grid.Column="1" Grid.Row="1"
                   ItemsSource="{Binding Files}">
