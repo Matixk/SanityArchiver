@@ -1,41 +1,89 @@
 using System.ComponentModel;
+using System.IO;
 using System.Runtime.CompilerServices;
+using System.Windows;
 using System.Windows.Input;
+using SanityArchiver.DesktopUI.Converters;
 using Utils;
 
 namespace SanityArchiver.DesktopUI.ViewModels
 {
     public sealed class PropertiesVm : INotifyPropertyChanged
     {
-        public object Name
-        {
-            get { throw new System.NotImplementedException(); }
-        }
+        private readonly string fileName;
+        private string name = "";
+        private bool readOnly;
+        private bool hidden;
 
-        public object Path
+        public string Name
         {
-            get { throw new System.NotImplementedException(); }
+            get => name;
+            set
+            {
+                name = value;
+                OnPropertyChanged();
+            }
         }
-
-        public object Size
+        public string Path { get; set; }
+        public string Size { get; set; }
+        public bool ReadOnly
         {
-            get { throw new System.NotImplementedException(); }
+            get => readOnly;
+            set
+            {
+                readOnly = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool Hidden
+        {
+            get => hidden;
+            set
+            {
+                hidden = value;
+                OnPropertyChanged();
+            }
         }
 
         public ICommand Save => new RelayCommand(SaveChanges);
+        public ICommand Cancel => new RelayCommand(Close);
 
-        public ICommand Cancel
+        public PropertiesVm(){}
+
+        public PropertiesVm(string path)
         {
-            get { throw new System.NotImplementedException(); }
+            var info = new FileInfo(path);
+            Path = info.DirectoryName;
+            Name = info.Name;
+            fileName = info.Name;
+            Size = FileSizeConverter.ConvertToString(info.Length);
+            ReadOnly = info.IsReadOnly;
+            Hidden = (info.Attributes & FileAttributes.Hidden) != 0;
         }
 
         private void SaveChanges(object obj)
         {
-            throw new System.NotImplementedException();
+            if (!File.Exists($"{Path}\\{fileName}")) return;
+            var info = new FileInfo($"{Path}\\{fileName}");
+
+            if (ReadOnly != info.IsReadOnly)
+                info.IsReadOnly = ReadOnly;
+            if (hidden)
+                info.Attributes |= FileAttributes.Hidden;
+            else
+                info.Attributes &= ~FileAttributes.Hidden;
+            if (Name != fileName)
+                File.Move($"{Path}\\{fileName}", $"{Path}\\{Name}");
+            MessageBox.Show("Saved", "Properties save",
+                MessageBoxButton.OK, MessageBoxImage.None);
+        }
+
+        private void Close(object obj)
+        {
+            ((Window)obj).Close();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

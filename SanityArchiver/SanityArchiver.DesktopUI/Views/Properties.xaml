@@ -3,10 +3,45 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:SanityArchiver.DesktopUI.Views"
+        DataContext="{StaticResource PropertiesDataContext}"
         mc:Ignorable="d"
-        Title="Properties" Height="450" Width="800">
-    <Grid>
+        Title="Properties" Height="225" Width="400"
+        x:Name="PropertiesWindow">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Name: "/> 
+        <TextBox Text="{Binding Name}"
+                 Grid.Column="1"/>
+
+        <Label Content="Location: " Grid.Row="1"/>
+        <TextBox Text="{Binding Path}" IsEnabled="False"
+                 Grid.Row="1" Grid.Column="1"/>
+
+        <Label Content="Size: " Grid.Row="2"/>
+        <TextBox Text="{Binding Size}" IsEnabled="False"
+                 Grid.Row="2" Grid.Column="1"/>
         
+        <CheckBox Content="Read-Only" IsChecked="{Binding ReadOnly, Mode=TwoWay}"
+                  Grid.Row="3"/>
+        <CheckBox Content="Hidden" IsChecked="{Binding Hidden, Mode=TwoWay}"
+                  Grid.Row="3" Grid.Column="1"/>
+
+        <Button Content="Cancel" Command="{Binding Cancel}" CommandParameter="{Binding ElementName=PropertiesWindow}"
+                Grid.Row="5"/>
+        <Button Content="Save" Command="{Binding Save}"
+                Grid.Row="5" Grid.Column="1"/>
     </Grid>
 </Window>

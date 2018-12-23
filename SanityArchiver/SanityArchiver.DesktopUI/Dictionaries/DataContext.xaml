@@ -3,6 +3,7 @@
                     xmlns:viewModels="clr-namespace:SanityArchiver.DesktopUI.ViewModels"
                     xmlns:converters="clr-namespace:SanityArchiver.DesktopUI.Converters">
     <viewModels:MainWindowVM x:Key="MainWindowDataContext"/>
+    <viewModels:PropertiesVm x:Key="PropertiesDataContext"/>
     <converters:FileSizeConverter x:Key="SizeConverter" />
     <converters:ExtensionRemover x:Key="ExtensionRemover" />
 </ResourceDictionary>
