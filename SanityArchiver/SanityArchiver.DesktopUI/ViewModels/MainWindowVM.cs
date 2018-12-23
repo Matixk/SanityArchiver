@@ -1,7 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -38,6 +37,7 @@ namespace SanityArchiver.DesktopUI.ViewModels
         public ICommand Copy => new RelayCommand(CopyItem);
         public ICommand Paste => new RelayCommand(PasteItem);
         public ICommand Delete => new RelayCommand(DeleteItem);
+        public ICommand Properties => new RelayCommand(ShowProperties);
 
         /// <summary>
         /// Creates a new ViewModel used in MainWindow and loads drivers for TreeView.
@@ -69,7 +69,6 @@ namespace SanityArchiver.DesktopUI.ViewModels
         private void LoadDirectories(object sender)
         {
             var selectedDirectory = (Directory)sender;
-            Debug.WriteLine(selectedDirectory.Name);
             selectedDirectory.LoadSubDirectories();
         }
 
@@ -138,6 +137,13 @@ namespace SanityArchiver.DesktopUI.ViewModels
             {
                 MessageBox.Show(e.Message, "Delete file", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        /// <summary> Show new window with selected file properties. </summary>
+        /// <param name="sender">ListViewItem file which calls this method.</param>
+        private void ShowProperties(object sender)
+        {
+            new Views.Properties(SelectedFile.Path).Show();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -12,5 +12,7 @@
                   Visibility="{Binding Path=PasteBtnVisibility, UpdateSourceTrigger=PropertyChanged}"/>
         <MenuItem Header="Delete"
                   Command="{Binding Delete}"/>
+        <MenuItem Header="Properties"
+                  Command="{Binding Properties}"/>
     </ContextMenu>
 </ResourceDictionary>
