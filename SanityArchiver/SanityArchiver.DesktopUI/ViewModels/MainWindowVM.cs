@@ -91,7 +91,7 @@ namespace SanityArchiver.DesktopUI.ViewModels
                 clipboard = SelectedFile.Path;
                 cut = deleteFile;
                 copy = !deleteFile;
-                PasteBtnVisibility = false;
+                PasteBtnVisibility = true;
             }
             catch (Exception e)
             {

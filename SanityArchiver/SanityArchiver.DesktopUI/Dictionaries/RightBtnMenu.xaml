@@ -9,7 +9,7 @@
                   Command="{Binding Copy}"/>
         <MenuItem Header="Paste"
                   Command="{Binding Paste}"
-                  Visibility="{Binding Path=PasteBtnVisibility, UpdateSourceTrigger=PropertyChanged}"/>
+                  IsEnabled="{Binding Path=PasteBtnVisibility, UpdateSourceTrigger=PropertyChanged}"/>
         <MenuItem Header="Delete"
                   Command="{Binding Delete}"/>
         <MenuItem Header="Properties"
