@@ -123,6 +123,10 @@
       <Project>{d78bfb25-5907-4fa2-87a7-806a7831efd2}</Project>
       <Name>SanityArchiver.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TextReader\TextReader.csproj">
+      <Project>{1602a6c5-8510-4155-b2d0-b7217aad9b28}</Project>
+      <Name>TextReader</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utils\Utils.csproj">
       <Project>{c0758d7b-3acf-4f7e-bdb7-bcafeaebc2a6}</Project>
       <Name>Utils</Name>

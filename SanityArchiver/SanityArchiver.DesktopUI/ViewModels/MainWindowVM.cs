@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using TextReader;
 using Utils;
 using Directory = SanityArchiver.Application.Models.Directories.Directory;
 using File = SanityArchiver.Application.Models.Files.File;
@@ -156,7 +157,14 @@ namespace SanityArchiver.DesktopUI.ViewModels
         /// <param name="sender">ListViewItem file which calls this method.</param>
         private void RunFile(object sender)
         {
-            throw new NotImplementedException();
+            if (sender == null) return;
+            var file = ((File) sender);
+            var filePath = file.Path;
+            var fileExtension = file.Extension;
+            file = null;
+
+            if (".txt".Equals(fileExtension))
+                new MainWindow(filePath).Show();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
