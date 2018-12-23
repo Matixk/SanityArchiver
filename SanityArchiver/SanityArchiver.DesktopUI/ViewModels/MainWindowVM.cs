@@ -72,6 +72,7 @@ namespace SanityArchiver.DesktopUI.ViewModels
         /// <param name="sender">TreeViewItem directory which calls this method.</param>
         private void LoadDirectories(object sender)
         {
+            if (sender == null) return;
             var selectedDirectory = (Directory)sender;
             selectedDirectory.LoadSubDirectories();
         }
@@ -80,7 +81,8 @@ namespace SanityArchiver.DesktopUI.ViewModels
         /// <param name="sender">TreeViewItem directory which calls this method.</param>
         private void ShowDirectoryFiles(object sender = null)
         {
-            if (sender != null) SelectedDirectory = (Directory)sender;
+            if (sender == null) return;
+            SelectedDirectory = (Directory)sender;
             SelectedDirectory.LoadFiles();
             Files.Clear();
             SelectedDirectory.ContainedFiles.ToList().ForEach(file => Files.Add(file));
