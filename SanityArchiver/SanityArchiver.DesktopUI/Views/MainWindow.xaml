@@ -39,7 +39,8 @@
         <ListView Grid.Column="1" Grid.Row="1"
                   ItemsSource="{Binding Files}"
                   ContextMenu="{StaticResource BasicContextMenu}"
-                  SelectedItem="{Binding SelectedFile}">
+                  SelectedItem="{Binding SelectedFile}"
+                  x:Name="ListView">
             <ListView.View>
                 <GridView>
 
@@ -54,6 +55,15 @@
 
                 </GridView>
             </ListView.View>
+
+            <i:Interaction.Triggers>
+
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding OpenFile}"
+                                           CommandParameter="{Binding ElementName=ListView, Path=SelectedItem}"/>
+                </i:EventTrigger>
+
+            </i:Interaction.Triggers>
         </ListView>
     </Grid>
 </Window>

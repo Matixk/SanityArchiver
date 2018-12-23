@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using Utils;
 using Directory = SanityArchiver.Application.Models.Directories.Directory;
@@ -27,6 +28,8 @@ namespace SanityArchiver.DesktopUI.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        public ContextMenu BasicContextMenu;
         public ObservableCollection<Directory> Directories { get; }
         public ObservableCollection<File> Files { get; }
         public File SelectedFile { get; set; }
@@ -38,6 +41,7 @@ namespace SanityArchiver.DesktopUI.ViewModels
         public ICommand Paste => new RelayCommand(PasteItem);
         public ICommand Delete => new RelayCommand(DeleteItem);
         public ICommand Properties => new RelayCommand(ShowProperties);
+        public ICommand OpenFile => new RelayCommand(RunFile);
 
         /// <summary>
         /// Creates a new ViewModel used in MainWindow and loads drivers for TreeView.
@@ -144,6 +148,13 @@ namespace SanityArchiver.DesktopUI.ViewModels
         private void ShowProperties(object sender)
         {
             new Views.Properties(SelectedFile.Path).Show();
+        }
+
+        /// <summary> Open file by default program. </summary>
+        /// <param name="sender">ListViewItem file which calls this method.</param>
+        private void RunFile(object sender)
+        {
+            throw new NotImplementedException();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
