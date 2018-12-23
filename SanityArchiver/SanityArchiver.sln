@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextReader", "TextReader\TextReader.csproj", "{1602A6C5-8510-4155-B2D0-B7217AAD9B28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cryptogram", "Cryptogram\Cryptogram.csproj", "{88A26F99-148F-4156-AB0B-CC25EE9E5E9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{1602A6C5-8510-4155-B2D0-B7217AAD9B28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1602A6C5-8510-4155-B2D0-B7217AAD9B28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1602A6C5-8510-4155-B2D0-B7217AAD9B28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88A26F99-148F-4156-AB0B-CC25EE9E5E9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88A26F99-148F-4156-AB0B-CC25EE9E5E9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88A26F99-148F-4156-AB0B-CC25EE9E5E9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88A26F99-148F-4156-AB0B-CC25EE9E5E9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
