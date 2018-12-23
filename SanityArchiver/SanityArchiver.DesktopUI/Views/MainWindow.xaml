@@ -37,7 +37,9 @@
         </TreeView>
 
         <ListView Grid.Column="1" Grid.Row="1"
-                  ItemsSource="{Binding Files}">
+                  ItemsSource="{Binding Files}"
+                  ContextMenu="{StaticResource BasicContextMenu}"
+                  SelectedItem="{Binding SelectedFile}">
             <ListView.View>
                 <GridView>
 

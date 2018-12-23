@@ -8,6 +8,7 @@
                 <ResourceDictionary Source="Dictionaries/DataContext.xaml"/>
                 <ResourceDictionary Source="Dictionaries/Layout.xaml"/>
                 <ResourceDictionary Source="Dictionaries/TreeView.xaml"/>
+                <ResourceDictionary Source="Dictionaries/RightBtnMenu.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
