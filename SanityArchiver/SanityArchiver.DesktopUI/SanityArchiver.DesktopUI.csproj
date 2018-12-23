@@ -65,6 +65,7 @@
     </ApplicationDefinition>
     <Page Include="Dictionaries\DataContext.xaml" />
     <Page Include="Dictionaries\Layout.xaml" />
+    <Page Include="Dictionaries\RightBtnMenu.xaml" />
     <Page Include="Dictionaries\TreeView.xaml" />
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
