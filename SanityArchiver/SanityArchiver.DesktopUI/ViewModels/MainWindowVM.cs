@@ -43,6 +43,7 @@ namespace SanityArchiver.DesktopUI.ViewModels
         public ICommand Delete => new RelayCommand(DeleteItem);
         public ICommand Properties => new RelayCommand(ShowProperties);
         public ICommand OpenFile => new RelayCommand(RunFile);
+        public ICommand Cryptographer => new RelayCommand(RunCryptogram);
 
         /// <summary>
         /// Creates a new ViewModel used in MainWindow and loads drivers for TreeView.
@@ -165,6 +166,25 @@ namespace SanityArchiver.DesktopUI.ViewModels
 
             if (".txt".Equals(fileExtension))
                 new MainWindow(filePath).Show();
+        }
+
+        /// <summary> Open Cryptogram dialog for selected file. </summary>
+        /// <param name="sender">ListViewItem file which calls this method.</param>
+        private void RunCryptogram(object sender)
+        {
+            if (SelectedFile == null)
+            {
+                MessageBox.Show("Select file!", "Cryptogram",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            var extension = SelectedFile.Extension;
+
+            if (".txt".Equals(extension) || ".ENC".Equals(extension))
+                new Cryptogram.Views.Cryptogram(SelectedFile.Path).Show();
+            else
+                MessageBox.Show(".txt or .ENC extension required", "Cryptogram",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

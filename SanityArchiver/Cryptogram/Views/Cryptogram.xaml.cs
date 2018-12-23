@@ -1,4 +1,5 @@
 using System.Windows;
+using Cryptogram.ViewModels;
 
 namespace Cryptogram.Views
 {
@@ -7,6 +8,12 @@ namespace Cryptogram.Views
         public Cryptogram()
         {
             InitializeComponent();
+        }
+
+        public Cryptogram(string path)
+        {
+            InitializeComponent();
+            DataContext = new CryptogramVm(path);
         }
     }
 }

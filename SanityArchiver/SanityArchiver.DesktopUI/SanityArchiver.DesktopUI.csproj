@@ -119,6 +119,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Cryptogram\Cryptogram.csproj">
+      <Project>{88a26f99-148f-4156-ab0b-cc25ee9e5e9e}</Project>
+      <Name>Cryptogram</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SanityArchiver.Application\SanityArchiver.Application.csproj">
       <Project>{d78bfb25-5907-4fa2-87a7-806a7831efd2}</Project>
       <Name>SanityArchiver.Application</Name>

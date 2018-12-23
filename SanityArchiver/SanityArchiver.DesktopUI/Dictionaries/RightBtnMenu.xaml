@@ -3,6 +3,9 @@
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
     <ContextMenu x:Key="BasicContextMenu" DataContext="{StaticResource MainWindowDataContext}">
+        <MenuItem Header="Encrypt/Decrypt"
+                  Command="{Binding Cryptographer}"/>
+        <Separator />
         <MenuItem Header="Cut"
                   Command="{Binding Cut}"/>
         <MenuItem Header="Copy"
@@ -12,7 +15,9 @@
                   IsEnabled="{Binding Path=PasteBtnVisibility, UpdateSourceTrigger=PropertyChanged}"/>
         <MenuItem Header="Delete"
                   Command="{Binding Delete}"/>
+        <Separator />
         <MenuItem Header="Properties"
                   Command="{Binding Properties}"/>
+        
     </ContextMenu>
 </ResourceDictionary>
