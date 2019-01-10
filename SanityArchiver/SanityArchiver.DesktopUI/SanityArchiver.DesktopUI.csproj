@@ -41,6 +41,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -69,7 +70,6 @@
       <DependentUpon>Properties.xaml</DependentUpon>
     </Compile>
     <Page Include="Dictionaries\DataContext.xaml" />
-    <Page Include="Dictionaries\Layout.xaml" />
     <Page Include="Dictionaries\RightBtnMenu.xaml" />
     <Page Include="Dictionaries\TreeView.xaml" />
     <Page Include="Views\MainWindow.xaml">
@@ -140,6 +140,18 @@
       <Project>{c0758d7b-3acf-4f7e-bdb7-bcafeaebc2a6}</Project>
       <Name>Utils</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icons\archive-folder.png" />
+    <Content Include="Icons\copy.png" />
+    <Content Include="Icons\delete.png" />
+    <Content Include="Icons\drive.png" />
+    <Content Include="Icons\enc.png" />
+    <Content Include="Icons\file-archiver.png" />
+    <Content Include="Icons\file.png" />
+    <Content Include="Icons\folder.png" />
+    <Content Include="Icons\txt.png" />
+    <Content Include="Icons\zip-file.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
