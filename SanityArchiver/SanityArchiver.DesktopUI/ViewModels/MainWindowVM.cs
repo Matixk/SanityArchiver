@@ -199,6 +199,7 @@ namespace SanityArchiver.DesktopUI.ViewModels
             try
             {
                 System.IO.File.Delete(SelectedFile.Path);
+                Files.Remove(selectedFile);
                 ShowDirectoryFiles();
             }
             catch (Exception e)
