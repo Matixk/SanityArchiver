@@ -6,11 +6,11 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         DataContext="{StaticResource MainWindowDataContext}"
-        Title="Sanity Archiver" Height="450" Width="800">
+        Title="Sanity Archiver" Width="1280" Height="720">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         
         <Grid.RowDefinitions>
@@ -40,18 +40,19 @@
                   ItemsSource="{Binding Files}"
                   ContextMenu="{StaticResource BasicContextMenu}"
                   SelectedItem="{Binding SelectedFile}"
-                  x:Name="ListView">
+                  x:Name="ListView"
+                  FontSize="16">
             <ListView.View>
                 <GridView>
 
                     <GridViewColumn DisplayMemberBinding="{Binding Name, Converter={StaticResource ExtensionRemover}}"
-                                    Header="Name" />
+                                    Header="Name" Width="120"/>
 
                     <GridViewColumn DisplayMemberBinding="{Binding Extension}"
-                                    Header="Extension" />
+                                    Header="Extension" Width="120"/>
 
                     <GridViewColumn DisplayMemberBinding="{Binding Size, Converter={StaticResource SizeConverter}}" 
-                                    Header="Size" />
+                                    Header="Size" Width="120"/>
 
                 </GridView>
             </ListView.View>
