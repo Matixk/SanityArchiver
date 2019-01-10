@@ -48,7 +48,7 @@
                     <GridViewColumn Width="80">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Image Source="{Binding Icon}" />
+                                <Image Source="{Binding Converter={StaticResource IconConverter}}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

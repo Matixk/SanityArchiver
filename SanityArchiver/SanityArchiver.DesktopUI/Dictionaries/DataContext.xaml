@@ -6,4 +6,5 @@
     <viewModels:PropertiesVm x:Key="PropertiesDataContext"/>
     <converters:FileSizeConverter x:Key="SizeConverter" />
     <converters:ExtensionRemover x:Key="ExtensionRemover" />
+    <converters:IconConverter x:Key="IconConverter" />
 </ResourceDictionary>

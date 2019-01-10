@@ -7,7 +7,7 @@
         DataType="directories:Directory">
         
         <StackPanel Orientation="Horizontal">
-            <Image Source="{Binding Icon}" Height="35" Width="35"/>
+            <Image Source="{Binding Converter={StaticResource IconConverter}}" Height="35" Width="35"/>
             <TreeViewItem Header="{Binding Name}" FontSize="16"/>
         </StackPanel>
         

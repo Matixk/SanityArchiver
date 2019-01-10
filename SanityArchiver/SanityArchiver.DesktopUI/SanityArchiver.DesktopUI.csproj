@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\IconConverter.cs" />
     <Compile Include="ViewModels\PropertiesVm.cs" />
     <Compile Include="Views\Properties.xaml.cs">
       <DependentUpon>Properties.xaml</DependentUpon>

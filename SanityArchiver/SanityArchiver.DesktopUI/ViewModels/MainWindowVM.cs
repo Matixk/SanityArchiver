@@ -6,8 +6,6 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
-using FileArchiver.Views;
-using SanityArchiver.Application.Models;
 using TextReader;
 using Utils;
 using Directory = SanityArchiver.Application.Models.Directories.Directory;
@@ -100,7 +98,6 @@ namespace SanityArchiver.DesktopUI.ViewModels
                     if (!disk.IsReady) return;
                     var directory = new Directory(disk.RootDirectory.FullName);
                     directory.LoadSubDirectories();
-                    directory.Icon = $"{Entity.IconsFolder}drive.png";
                     Directories.Add(directory);
                 });
             }
