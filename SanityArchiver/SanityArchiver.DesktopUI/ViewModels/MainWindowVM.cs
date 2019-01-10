@@ -1,6 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -224,8 +225,16 @@ namespace SanityArchiver.DesktopUI.ViewModels
             var filePath = file.Path;
             var fileExtension = file.Extension;
 
-            if (".txt".Equals(fileExtension))
-                new MainWindow(filePath).Show();
+            switch (fileExtension)
+            {
+                case ".txt":
+                case ".ENC":
+                    new MainWindow(filePath).Show();
+                    break;
+                case ".exe":
+                    Process.Start(filePath);
+                    break;
+            }
         }
 
         /// <summary> Open Cryptogram dialog for selected file. </summary>
