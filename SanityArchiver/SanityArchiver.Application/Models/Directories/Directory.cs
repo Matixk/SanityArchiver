@@ -1,6 +1,10 @@
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using File = SanityArchiver.Application.Models.Files.File;
 
 namespace SanityArchiver.Application.Models.Directories
@@ -48,5 +52,33 @@ namespace SanityArchiver.Application.Models.Directories
 
         private bool CheckAttributes(FileAttributes attributes) => (attributes & FileAttributes.Hidden) == 0 &&
                                                                    (attributes & FileAttributes.System) == 0;
+
+        public List<File> SearchFile(Regex regex)
+        {
+            var files = new List<File>();
+
+            LoadFiles();
+            LoadSubDirectories();
+
+            ContainedFiles.ToList().ForEach(file =>
+                {
+                    if (regex.IsMatch(file.Name))
+                        files.Add(file);
+                }
+            );
+            SubDirectories.ToList().ForEach(directory =>
+            {
+                try
+                {
+                    files.AddRange(directory.SearchFile(regex));
+                }
+                catch (UnauthorizedAccessException e)
+                {
+                    Debug.WriteLine(e.Source);
+                }
+
+            });
+            return files;
+        }
     }
 }

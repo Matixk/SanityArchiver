@@ -1,7 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -94,8 +93,6 @@ namespace SanityArchiver.DesktopUI.ViewModels
         public ICommand OpenFile => new RelayCommand(RunFile);
         public ICommand Cryptographer => new RelayCommand(RunCryptogram);
         public ICommand Search => new RelayCommand(SearchFiles);
-
-        
 
         /// <summary>
         /// Creates a new ViewModel used in MainWindow and loads drivers for TreeView.
@@ -240,7 +237,11 @@ namespace SanityArchiver.DesktopUI.ViewModels
         
         private void SearchFiles(object sender)
         {
-            Debug.WriteLine(fileToSearch);
+            Files.Clear();
+            File.SearchFile(fileToSearch).ForEach(file => Files.Add(file));
+            if (Files.Count == 0)
+                MessageBox.Show($"{fileToSearch} not found", "Search Result",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

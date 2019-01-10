@@ -1,4 +1,9 @@
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
+using Directory = SanityArchiver.Application.Models.Directories.Directory;
 
 namespace SanityArchiver.Application.Models.Files
 {
@@ -26,6 +31,18 @@ namespace SanityArchiver.Application.Models.Files
         public override long GetSize()
         {
             return new FileInfo(Path).Length;
+        }
+
+        public static List<File> SearchFile(string name)
+        {
+            var files = new List<File>();
+
+            DriveInfo.GetDrives().ToList().ForEach(info =>
+            {
+                if (!info.IsReady) return;
+                files.AddRange(new Directory(info.Name).SearchFile(new Regex(name)));
+            });
+            return files;
         }
     }
 }
