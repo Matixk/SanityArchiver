@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
         mc:Ignorable="d"
         DataContext="{StaticResource MainWindowDataContext}"
         Title="Sanity Archiver" Width="1280" Height="720">
@@ -17,6 +18,14 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
+        <TextBox Text="{Binding FileToSearch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <i:Interaction.Triggers>
+                <ei:KeyTrigger Key="Enter">
+                    <i:InvokeCommandAction Command="{Binding Search}"/>
+                </ei:KeyTrigger>
+            </i:Interaction.Triggers>
+        </TextBox>
         
         <TreeView x:Name="TreeView" Grid.Column="0" Grid.Row="1"
                   ItemsSource="{Binding Directories}"

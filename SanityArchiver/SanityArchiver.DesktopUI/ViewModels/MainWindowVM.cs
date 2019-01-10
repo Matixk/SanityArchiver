@@ -1,6 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -22,6 +23,7 @@ namespace SanityArchiver.DesktopUI.ViewModels
         private bool selectedFileOptionsVisibility;
         private File selectedFile;
         private bool cryptogramOptionVisibility;
+        private string fileToSearch = "Search";
         public bool PasteBtnVisibility
         {
             get => pasteBtnVisibility;
@@ -69,6 +71,15 @@ namespace SanityArchiver.DesktopUI.ViewModels
             }
         }
         private Directory SelectedDirectory { get; set; }
+        public string FileToSearch
+        {
+            get => fileToSearch;
+            set
+            {
+                fileToSearch = value;
+                OnPropertyChanged();
+            }
+        }
 
         public ObservableCollection<Directory> Directories { get; }
         public ObservableCollection<File> Files { get; }
@@ -82,6 +93,9 @@ namespace SanityArchiver.DesktopUI.ViewModels
         public ICommand Properties => new RelayCommand(ShowProperties);
         public ICommand OpenFile => new RelayCommand(RunFile);
         public ICommand Cryptographer => new RelayCommand(RunCryptogram);
+        public ICommand Search => new RelayCommand(SearchFiles);
+
+        
 
         /// <summary>
         /// Creates a new ViewModel used in MainWindow and loads drivers for TreeView.
@@ -200,7 +214,6 @@ namespace SanityArchiver.DesktopUI.ViewModels
             var file = ((File) sender);
             var filePath = file.Path;
             var fileExtension = file.Extension;
-            file = null;
 
             if (".txt".Equals(fileExtension))
                 new MainWindow(filePath).Show();
@@ -223,6 +236,11 @@ namespace SanityArchiver.DesktopUI.ViewModels
             else
                 MessageBox.Show(".txt or .ENC extension required", "Cryptogram",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
+        }
+        
+        private void SearchFiles(object sender)
+        {
+            Debug.WriteLine(fileToSearch);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
