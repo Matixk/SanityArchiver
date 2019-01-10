@@ -19,13 +19,16 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <TextBox Text="{Binding FileToSearch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        <TextBox Text="{Binding FileToSearch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="18">
             <i:Interaction.Triggers>
                 <ei:KeyTrigger Key="Enter">
                     <i:InvokeCommandAction Command="{Binding Search}"/>
                 </ei:KeyTrigger>
             </i:Interaction.Triggers>
         </TextBox>
+        
+        <TextBox Text="{Binding SelectedDirectory.Path, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Row="0" Grid.Column="1" FontSize="18"/>
         
         <TreeView x:Name="TreeView" Grid.Column="0" Grid.Row="1"
                   ItemsSource="{Binding Directories}"

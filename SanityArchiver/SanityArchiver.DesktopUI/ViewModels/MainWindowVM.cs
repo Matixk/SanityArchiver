@@ -21,6 +21,7 @@ namespace SanityArchiver.DesktopUI.ViewModels
         private bool pasteBtnVisibility;
         private bool selectedFileOptionsVisibility;
         private File selectedFile;
+        private Directory selectedDirectory;
         private bool cryptogramOptionVisibility;
         private string fileToSearch = "Search";
         public bool PasteBtnVisibility
@@ -69,7 +70,17 @@ namespace SanityArchiver.DesktopUI.ViewModels
                 OnPropertyChanged();
             }
         }
-        private Directory SelectedDirectory { get; set; }
+
+        public Directory SelectedDirectory
+        {
+            get => selectedDirectory;
+            set
+            {
+                selectedDirectory = value;
+                OnPropertyChanged();
+            }
+        }
+
         public string FileToSearch
         {
             get => fileToSearch;
@@ -124,7 +135,7 @@ namespace SanityArchiver.DesktopUI.ViewModels
         private void LoadDirectories(object sender)
         {
             if (sender == null) return;
-            var selectedDirectory = (Directory)sender;
+            selectedDirectory = (Directory)sender;
             selectedDirectory.LoadSubDirectories();
         }
 
