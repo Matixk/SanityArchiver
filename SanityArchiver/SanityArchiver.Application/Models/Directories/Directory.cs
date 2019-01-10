@@ -10,6 +10,8 @@ namespace SanityArchiver.Application.Models.Directories
         public ObservableCollection<File> ContainedFiles { get; }= new ObservableCollection<File>();
         public ObservableCollection<Directory> SubDirectories { get; }= new ObservableCollection<Directory>();
 
+        public string Icon { get; set; } = @"C:\Users\matix\Documents\Projects\Rider\Sanity Archiver\SanityArchiver\SanityArchiver.DesktopUI\Icons\folder.png";
+
         public Directory(string path) : base(path)
         {
             Name = new DirectoryInfo(path).Name;

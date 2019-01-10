@@ -16,10 +16,15 @@ namespace SanityArchiver.DesktopUI.ViewModels
 {
     public sealed class MainWindowVM : INotifyPropertyChanged
     {
+        private const string iconFolder =
+            @"C:\Users\matix\Documents\Projects\Rider\Sanity Archiver\SanityArchiver\SanityArchiver.DesktopUI\Icons\";
         private string clipboard;
         private bool copy;
         private bool cut;
         private bool pasteBtnVisibility;
+        private bool selectedFileOptionsVisibility;
+        private File selectedFile;
+        private bool cryptogramOptionVisibility;
         public bool PasteBtnVisibility
         {
             get => pasteBtnVisibility;
@@ -60,6 +65,7 @@ namespace SanityArchiver.DesktopUI.ViewModels
                     if (!disk.IsReady) return;
                     var directory = new Directory(disk.RootDirectory.FullName);
                     directory.LoadSubDirectories();
+                    directory.Icon = $"{iconFolder}drive.png";
                     Directories.Add(directory);
                 });
             }
