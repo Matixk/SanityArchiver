@@ -4,20 +4,25 @@
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
     <ContextMenu x:Key="BasicContextMenu" DataContext="{StaticResource MainWindowDataContext}">
         <MenuItem Header="Encrypt/Decrypt"
-                  Command="{Binding Cryptographer}"/>
+                  Command="{Binding Cryptographer}"
+                  IsEnabled="{Binding Path=CryptogramOptionVisibility, UpdateSourceTrigger=PropertyChanged}"/>
         <Separator />
         <MenuItem Header="Cut"
-                  Command="{Binding Cut}"/>
+                  Command="{Binding Cut}"
+                  IsEnabled="{Binding Path=SelectedFileOptionsVisibility, UpdateSourceTrigger=PropertyChanged}"/>
         <MenuItem Header="Copy"
-                  Command="{Binding Copy}"/>
+                  Command="{Binding Copy}"
+                  IsEnabled="{Binding Path=SelectedFileOptionsVisibility, UpdateSourceTrigger=PropertyChanged}"/>
         <MenuItem Header="Paste"
                   Command="{Binding Paste}"
                   IsEnabled="{Binding Path=PasteBtnVisibility, UpdateSourceTrigger=PropertyChanged}"/>
         <MenuItem Header="Delete"
-                  Command="{Binding Delete}"/>
+                  Command="{Binding Delete}"
+                  IsEnabled="{Binding Path=SelectedFileOptionsVisibility, UpdateSourceTrigger=PropertyChanged}"/>
         <Separator />
         <MenuItem Header="Properties"
-                  Command="{Binding Properties}"/>
+                  Command="{Binding Properties}"
+                  IsEnabled="{Binding Path=SelectedFileOptionsVisibility, UpdateSourceTrigger=PropertyChanged}"/>
         
     </ContextMenu>
 </ResourceDictionary>

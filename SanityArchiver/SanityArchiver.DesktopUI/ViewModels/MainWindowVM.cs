@@ -5,8 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
+using FileArchiver.Views;
 using TextReader;
 using Utils;
 using Directory = SanityArchiver.Application.Models.Directories.Directory;
@@ -34,12 +34,48 @@ namespace SanityArchiver.DesktopUI.ViewModels
                 OnPropertyChanged();
             }
         }
+        public bool SelectedFileOptionsVisibility
+        {
+            get => selectedFileOptionsVisibility;
+            set
+            {
+                selectedFileOptionsVisibility = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool CryptogramOptionVisibility
+        {
+            get => cryptogramOptionVisibility;
+            set
+            {
+                cryptogramOptionVisibility = value;
+                OnPropertyChanged();
+            }
+        }
+        public File SelectedFile
+        {
+            get => selectedFile;
+            set
+            {
+                selectedFile = value;
+                SelectedFileOptionsVisibility = true;
+                if (selectedFile.Extension == ".txt" ||
+                    selectedFile.Extension == ".ENC")
+                {
+                    CryptogramOptionVisibility = true;
+                }
+                else
+                {
+                    CryptogramOptionVisibility = false;
+                }
+                OnPropertyChanged();
+            }
+        }
+        private Directory SelectedDirectory { get; set; }
 
-        public ContextMenu BasicContextMenu;
         public ObservableCollection<Directory> Directories { get; }
         public ObservableCollection<File> Files { get; }
-        public File SelectedFile { get; set; }
-        private Directory SelectedDirectory { get; set; }
+
         public ICommand ExpandDirectory => new RelayCommand(LoadDirectories);
         public ICommand ShowDirectory => new RelayCommand(ShowDirectoryFiles);
         public ICommand Cut => new RelayCommand(CutItem);

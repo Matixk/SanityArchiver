@@ -123,6 +123,10 @@
       <Project>{88a26f99-148f-4156-ab0b-cc25ee9e5e9e}</Project>
       <Name>Cryptogram</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FileArchiver\FileArchiver.csproj">
+      <Project>{ffcafb4e-2080-4b4b-bb83-eeeef32c128d}</Project>
+      <Name>FileArchiver</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SanityArchiver.Application\SanityArchiver.Application.csproj">
       <Project>{d78bfb25-5907-4fa2-87a7-806a7831efd2}</Project>
       <Name>SanityArchiver.Application</Name>
