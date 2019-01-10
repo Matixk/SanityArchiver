@@ -45,13 +45,14 @@
             <ListView.View>
                 <GridView>
                     
-                    <GridViewColumn>
-                        <Image Source="{Binding Path=Icon}" />
+                    <GridViewColumn Width="80">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Icon}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Icon}"
-                                    Header="Name" Width="120"/>
-                    
                     <GridViewColumn DisplayMemberBinding="{Binding Name, Converter={StaticResource ExtensionRemover}}"
                                     Header="Name" Width="120"/>
 
