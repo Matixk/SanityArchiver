@@ -4,6 +4,8 @@ namespace SanityArchiver.Application.Models
 {
     public abstract class Entity : INotifyPropertyChanged
     {
+        public static string IconsFolder { get; } =
+            @"C:\Users\matix\Documents\Projects\Rider\Sanity Archiver\SanityArchiver\SanityArchiver.DesktopUI\Icons\";
         private string name;
         private string path;
         
