@@ -3,7 +3,10 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Windows;
 using System.Windows.Data;
+using System.Windows.Interop;
+using System.Windows.Media.Imaging;
 using SanityArchiver.DesktopUI.Properties;
 using Directory = SanityArchiver.Application.Models.Directories.Directory;
 using File = SanityArchiver.Application.Models.Files.File;
@@ -18,19 +21,19 @@ namespace SanityArchiver.DesktopUI.Converters
             {
                 case Directory directory:
                     if (DriveInfo.GetDrives().Any(drive => directory.Name == drive.Name))
-                        return @"..\Icons\drive.png";
-                    return @"..\Icons\folder.png";
+                        return GetImageSource(Resources.drive);
+                    return GetImageSource(Resources.folder);
                 case File file:
                     switch (file.Extension)
                     {
                         case ".txt":
-                            return @"..\Icons\txt.png";;
+                            return GetImageSource(Resources.txt);
                         case ".ENC":
-                            return @"..\Icons\enc.png";;
+                            return GetImageSource(Resources.enc);
                         case ".zip":
-                            return @"..\Icons\zip.png";;
+                            return GetImageSource(Resources.zip_file);
                         default:
-                            return @"..\Icons\file.png";;
+                            return GetImageSource(Resources.file);
                     }
             }
             return null;
@@ -40,5 +43,11 @@ namespace SanityArchiver.DesktopUI.Converters
         {
             throw new NotImplementedException();
         }
+
+        private static BitmapSource GetImageSource(Bitmap bitmap) =>
+            Imaging.CreateBitmapSourceFromHBitmap(bitmap.GetHbitmap(),
+                IntPtr.Zero,
+                Int32Rect.Empty,
+                BitmapSizeOptions.FromEmptyOptions());
     }
 }
