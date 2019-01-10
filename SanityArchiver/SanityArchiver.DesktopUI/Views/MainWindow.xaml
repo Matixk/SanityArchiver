@@ -44,7 +44,14 @@
                   FontSize="16">
             <ListView.View>
                 <GridView>
+                    
+                    <GridViewColumn>
+                        <Image Source="{Binding Path=Icon}" />
+                    </GridViewColumn>
 
+                    <GridViewColumn DisplayMemberBinding="{Binding Icon}"
+                                    Header="Name" Width="120"/>
+                    
                     <GridViewColumn DisplayMemberBinding="{Binding Name, Converter={StaticResource ExtensionRemover}}"
                                     Header="Name" Width="120"/>
 
