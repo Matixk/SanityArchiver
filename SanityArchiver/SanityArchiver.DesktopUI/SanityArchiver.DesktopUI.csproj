@@ -65,6 +65,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\IconConverter.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\PropertiesVm.cs" />
     <Compile Include="Views\Properties.xaml.cs">
       <DependentUpon>Properties.xaml</DependentUpon>
@@ -92,11 +97,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -142,14 +142,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Icons\archive-folder.png" />
     <Content Include="Icons\copy.png" />
     <Content Include="Icons\delete.png" />
+    <None Include="Icons\dll.png" />
     <Content Include="Icons\drive.png" />
     <Content Include="Icons\enc.png" />
+    <None Include="Icons\exe.png" />
     <Content Include="Icons\file-archiver.png" />
     <Content Include="Icons\file.png" />
     <Content Include="Icons\folder.png" />
+    <None Include="Icons\image.png" />
     <Content Include="Icons\txt.png" />
     <Content Include="Icons\zip-file.png" />
   </ItemGroup>

@@ -32,6 +32,14 @@ namespace SanityArchiver.DesktopUI.Converters
                             return GetImageSource(Resources.enc);
                         case ".zip":
                             return GetImageSource(Resources.zip_file);
+                        case ".exe":
+                            return GetImageSource(Resources.exe);
+                        case ".dll":
+                            return GetImageSource(Resources.dll);
+                        case ".jpg":
+                        case ".png":
+                        case ".bmp":
+                            return GetImageSource(Resources.image);
                         default:
                             return GetImageSource(Resources.file);
                     }
