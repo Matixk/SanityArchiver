@@ -1,6 +1,6 @@
-# SaintSender
+# SanityArchiver
 
-SaintSender is a file browser application for windows.
+SanityArchiver is a file browser application for windows.
 
 ## Features
 
